@@ -3,7 +3,7 @@ class Api::V1::PlanetsController < ApplicationController
 
   # GET /planets
   def index
-    @planets = Planet.all
+    @planets = Planet.search(params[:name]).sorted_by_name
 
     render json: @planets
   end
