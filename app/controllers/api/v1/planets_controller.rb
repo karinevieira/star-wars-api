@@ -1,4 +1,4 @@
-class PlanetsController < ApplicationController
+class Api::V1::PlanetsController < ApplicationController
   before_action :set_planet, only: [:show, :update, :destroy]
 
   # GET /planets
@@ -18,7 +18,7 @@ class PlanetsController < ApplicationController
     @planet = Planet.new(planet_params)
 
     if @planet.save
-      render json: @planet, status: :created, location: @planet
+      render json: @planet, status: :created, location: api_planet_url(@planet)
     else
       render json: @planet.errors, status: :unprocessable_entity
     end
