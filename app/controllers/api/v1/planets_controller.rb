@@ -10,7 +10,9 @@ class Api::V1::PlanetsController < ApplicationController
 
   # GET /planets/1
   def show
-    render json: @planet
+    @films = @planet.get_films
+
+    render json: @planet.attributes.merge({films: @films})
   end
 
   # POST /planets
