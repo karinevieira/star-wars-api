@@ -1,24 +1,59 @@
-# README
+# Star Wars API
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Building an API using Ruby on Rails 6.
 
-Things you may want to cover:
+<table>
+  <tr>
+    <td>Ruby Version</td>
+    <td>2.5.8</td>
+  </tr>
+  <tr>
+    <td>Rails Version</td>
+    <td>6.0.4.6</td>
+  </tr>
+  <tr>
+    <td>Database</td>
+    <td>PostgreSQL</td>
+  </tr>
+</table>
 
-* Ruby version
+## Installation
 
-* System dependencies
+```bash
+  # clone the project
+  git clone https://github.com/karinevieira/star-wars-api.git
 
-* Configuration
+  # enter the cloned directory
+  cd star-wars-api
 
-* Database creation
+  # run the project
+  docker-compose up --build
 
-* Database initialization
+  # create the development and test databases
+  rails db:create
 
-* How to run the test suite
+  # migrate tables to database
+  rails db:migrate
+```
+Open the browser at the address http://localhost:3000 
 
-* Services (job queues, cache servers, search engines, etc.)
+## Running Tests
 
-* Deployment instructions
+To run tests, run the following command
 
-* ...
+```bash
+  rspec
+```
+
+## API Reference
+
+#### Endpoints
+
+| Endpoints                 | Usage                                  | Params                                          |
+|---------------------------|----------------------------------------|-------------------------------------------------|
+| ``GET /api/planets``           | Get all of the planets.                 |                                                 |
+| ``GET /api/planets?name=term`` | Get all planets with name like term.    | term: [String]                                  |
+| ``GET /api/planets/:id``       | Get details of a single planet.         |                                                 |
+| ``POST /api/planets``          | Create a new planet.                    | name: [String], weather: [String], ground: [String] |
+| ``PUT /api/planets/:id``       | Edit the details of an existing planet. | name: [String], weather: [String], ground: [String] |
+| ``DELETE /api/planets/:id``    | Remove the planet.                      |                                                 |
